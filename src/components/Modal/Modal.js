@@ -1,33 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './modal-module.css';
 
 const Modal = ({ isOpen, onClose }) => {
-    return (
-        <div></div>
-    )
-};
+    //const Footer = Modal.Footer.hasChildNodes ? <Modal.Footer classname={`${styles.modal.footer}`}>{Modal.Footer.children}</Modal.Footer> : "";
+    const Title = ({ children }) => {
+        console.log({children});
+        return (
+            <div>{ children }</div>
+        )
+    };
 
-Modal.Title = ({ children }) => {
-    return (
-        <div>{ children }</div>
-    )
-};
+    const Content = ({ children }) => {
+        return (
+            <div>{ children }</div>
+        )
+    };
 
-Modal.Content = ({ children }) => {
+    const Footer = ({ children }) => {
+        return (
+            <div>{ children }</div>
+        )
+    };
     return (
-        <div>{ children }</div>
-    )
-};
+        <div className={`${styles.modal}`}>
+            <Title classname={`${styles.modal.title}`} />
+            <Content classname={`${styles.modal.content}`} />
+            <Footer classname={`${styles.modal.footer}`} />
+        </div>
+    );
 
-Modal.Footer = ({ children }) => {
-    return (
-        <div>{ children }</div>
-    )
-};
-
-Modal.PropTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired
 };
 
 export default Modal;
+
+Modal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired
+};

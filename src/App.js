@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
 import './App.css';
+import Modal from './components/Modal/Modal';
 
-/* CSS Modules */
+/* CSS Modules
 import ButtonCM from './components/Button/ButtonCM';
 import PaperCM from './components/Paper/PaperCM';
+*/
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        //this.pizzaClicked = this.pizzaClicked.bind(this);
+        this.state = {
+            isOpen: true
+        };
+    }
     render() {
         return (
             <div>
                 <div>
+                    <h2>Modal</h2>
+                    <Modal
+                        isOpen={this.state.isOpen}
+                        onClose={() => this.setState({ isOpen: false })}>
+                        <Modal.Title>My Modal Title</Modal.Title>
+                        <Modal.Body>My Modal Body</Modal.Body>
+                        <Modal.Footer>My Modal Footer</Modal.Footer>
+                    </Modal>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default App;
+
+/*
+<div>
                     <h2>Css modules</h2>
                     <h3>ButtonCM</h3>
                     <ButtonCM
@@ -29,14 +56,7 @@ class App extends Component {
                     <PaperCM shadowSize="medium">Medium</PaperCM>
                     <PaperCM shadowSize="large">Large</PaperCM>
                 </div>
-            </div>
-        );
-    }
-}
-
-export default App;
-
-
+ */
 
 
 /*
