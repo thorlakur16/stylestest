@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const styles = {
     base: {
         padding: 10,
-        margin: 0,
+        margin: 10,
         width: "100%",
         borderBottomWidth: 10,
         borderBottomStyle: 'solid',
